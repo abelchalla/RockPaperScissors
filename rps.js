@@ -42,3 +42,12 @@ function playRound(playerSelection, computerSelection){
         return "It's a Tie!";
     }
 }
+
+
+function game() {
+    let playersChoice;
+    for(let i = 0; i < 5; i++) {
+        playersChoice = prompt("Pick 'Rock', 'Paper', or 'Scissors': ")
+        console.log(playRound(playersChoice, getComputerChoice()));
+    }
+}
