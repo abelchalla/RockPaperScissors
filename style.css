@@ -1,0 +1,76 @@
+body{
+    margin:0;
+    padding: 0;
+    background-color: gray;;
+    background-size: cover;
+    background-position: fixed;
+    font-family: 'Comfortaa', cursive;
+}
+.whole{
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    gap: 80px;
+}
+.out{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 175px;
+    justify-content: center;
+    padding: 30px;
+}
+button{
+    padding: 30px;
+}
+
+.rock,.paper,.scissors{
+    background: rgba(7, 6, 6, 0.7);
+    border-radius: 50%;
+    border: none;
+    padding: 20px;
+}
+
+.rock::before, .paper::before, .scissors::before{
+    font-size: 100px;
+}
+
+.rock::before{
+    content: "\270A";
+}
+
+.rock:hover, .paper:hover, .scissors:hover{
+    transform: scale(1.4);
+}
+
+.paper::before{
+    content: "\270B";
+}
+
+.scissors::before{
+    content: "\270C";
+}
+
+div{
+    text-align: center;
+}
+
+.score{
+    display:flex;
+    justify-content: center;
+    gap: 150px;
+}
+
+span, .text, .player,.cpu{
+    font-size:22px;
+    font-weight: 900;
+    color: white;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: rgba(7, 6, 6, 0.7);
+    padding: 30px;
+    border-radius: 50%;
+}

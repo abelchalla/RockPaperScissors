@@ -1,5 +1,9 @@
 // create a function that randomly picks 'Rock', 'Paper', or 'Scissors'
 //start with making a variable be a number from 1-3 randomly
+const div2 = document.querySelector(".player");
+const div3 = document.querySelector(".cpu");
+let playerCount = 0;
+let cpuCount = 0;
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3);
     if(choice == 0) {
@@ -12,13 +16,19 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection){
+    playerSelection = String(playerSelection);
+
     if(playerSelection.toLowerCase() == 'rock' && computerSelection == 'Paper') {
+        cpuCount += 1;
+        div3.innerHTML = `${cpuCount}`;
         return "You Lose! Paper beats Rock";
     }
     else if(playerSelection.toLowerCase() == 'paper' && computerSelection == 'Paper') {
         return "It's a Tie!";
     }
     else if(playerSelection.toLowerCase() == 'scissors' && computerSelection == 'Paper') {
+        playerCount += 1;
+        div2.innerHTML = `${playerCount}`;
         return "You Win! Scissors beats Paper";
     }
 
@@ -26,16 +36,24 @@ function playRound(playerSelection, computerSelection){
         return "It's a Tie!";
     }
     else if(playerSelection.toLowerCase() == 'paper' && computerSelection == 'Rock') {
+        playerCount += 1;
+        div2.innerHTML = `${playerCount}`;
         return "You Win! Paper beats Rock";
     }
     else if(playerSelection.toLowerCase() == 'scissors' && computerSelection == 'Rock') {
+        cpuCount += 1;
+        div3.innerHTML = `${cpuCount}`;
         return "You Lose! Rock beats Scissors";
     }
 
     else if(playerSelection.toLowerCase() == 'rock' && computerSelection == 'Scissors') {
+        playerCount += 1;
+        div2.innerHTML = `${playerCount}`;
         return "You Win! Rock beats Scissors";
     }
     else if(playerSelection.toLowerCase() == 'paper' && computerSelection == 'Scissors') {
+        cpuCount += 1;
+        div3.innerHTML = `${cpuCount}`;
         return "You Lose! Scissors beats Paper";
     }
     else if(playerSelection.toLowerCase() == 'scissors' && computerSelection == 'Scissors') {
@@ -43,11 +61,25 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-
-function game() {
-    let playersChoice;
-    for(let i = 0; i < 5; i++) {
-        playersChoice = prompt("Pick 'Rock', 'Paper', or 'Scissors': ")
-        console.log(playRound(playersChoice, getComputerChoice()));
+const buttons = document.querySelectorAll("button");
+const div = document.querySelector(".text")
+buttons.forEach(button => button.addEventListener('click', (e) => {
+    const random = getComputerChoice();
+    div.innerText = playRound(e.target.className, random);
+    if(playerCount == 5){
+        div.innerText = "You Winnnnnnnn!!!!!!!!!!!! Feel free to play again!";
+        playerCount = 0;
+        cpuCount = 0;
+        div2.innerText = `${playerCount}`;
+        div3.innerText = `${cpuCount}`;
+        return;
     }
-}
+    if(cpuCount == 5){
+        div.innerText = 'Sorry you lost :( Feel free to play again!';
+        playerCount = 0;
+        cpuCount = 0;
+        div2.innerText = `${playerCount}`;
+        div3.innerText = `${cpuCount}`;
+        return;
+    }
+}));
