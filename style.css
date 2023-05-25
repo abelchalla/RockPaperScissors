@@ -28,6 +28,7 @@ button{
     border-radius: 50%;
     border: none;
     padding: 20px;
+    flex-basis: auto;
 }
 
 .rock::before, .paper::before, .scissors::before{
@@ -57,7 +58,7 @@ div{
 .score{
     display:flex;
     justify-content: center;
-    gap: 150px;
+    gap: 100px;
 }
 
 span, .text, .player,.cpu{
