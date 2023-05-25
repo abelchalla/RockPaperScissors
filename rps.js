@@ -67,7 +67,9 @@ buttons.forEach(button => button.addEventListener('click', (e) => {
     const random = getComputerChoice();
     div.innerText = playRound(e.target.className, random);
     if(playerCount == 5){
-        div.innerText = "You Winnnnnnnn!!!!!!!!!!!! Feel free to play again!";
+        /*div.innerText = "You Winnnnnnnn!!!!!!!!!!!! Feel free to play again!";*/
+        alert("You Winnnnnnnn!!!!!!!!!!!! Feel free to play again!");
+        div.innerText = "Welcome to my Rock Paper Scissors Game. You will be competing against the CPU. First to 5 wins!";
         playerCount = 0;
         cpuCount = 0;
         div2.innerText = `${playerCount}`;
@@ -75,7 +77,8 @@ buttons.forEach(button => button.addEventListener('click', (e) => {
         return;
     }
     if(cpuCount == 5){
-        div.innerText = 'Sorry you lost :( Feel free to play again!';
+        alert("Sorry you lost :( Feel free to play again!");
+        div.innerText = "Welcome to my Rock Paper Scissors Game. You will be competing against the CPU. First to 5 wins!";
         playerCount = 0;
         cpuCount = 0;
         div2.innerText = `${playerCount}`;
